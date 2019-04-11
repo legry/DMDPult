@@ -7,6 +7,7 @@ import android.databinding.ObservableArrayList;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -92,8 +93,11 @@ public class MainActivity extends AppCompatActivity implements ChangeListener, S
             }
         }
 
-        public void dialogCreator(final byte dev, final String msg) {
+        void dialogCreator(final byte dev, final String msg) {
             final EditText edittext = new EditText(MainActivity.this);
+            if (msg.equals("cnt")) {
+                edittext.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
+            }
             AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
             alert.setTitle("Введите значение");
 
